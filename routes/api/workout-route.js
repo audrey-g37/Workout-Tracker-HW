@@ -11,6 +11,12 @@ router.get("/", (req, res) => {
     });
 });
 
+router.get("/range", (req, res) => {
+  db.Workout.find({}).then((allWorkouts) => {
+    res.json(allWorkouts);
+  });
+});
+
 router.post("/", ({ body }, res) => {
   db.Workout.create(body)
     .then((workoutData) => {
